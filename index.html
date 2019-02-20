@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script>
+    function cl(){
+        var str = document.getElementById('t').value;
+        var k = new XMLHttpRequest();
+        k.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                document.getElementById('k').innerHTML = this.responseText;
+            }
+        }
+        k.open('GET','ajax.php?q=' + str,true);
+        k.send();
+        
+    }
+</script>
+</head>
+
+<body>
+    <input type="text" id="t" onkeyup="cl()">
+    <p>suggestion : <span id="k"></span></p>
+</body>
+</html>
